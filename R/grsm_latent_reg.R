@@ -6,9 +6,9 @@ data(Science, package = "ltm")
 # Convert dataset to an integer matrix with values 1 ... 4
 M <- matrix(NA, ncol = ncol(Science), nrow = nrow(Science))
 for (i in 1:ncol(M)) M[, i] <- as.integer(Science[, i])
-M[M[, 1]==4, 1] <- 3 # test varying number of steps
-M[M[, 2]==2, 2] <- 1
-M[M[, 2]>2, 2] <- 2
+# M[M[, 1]==4, 1] <- 3 # test varying number of steps
+# M[M[, 2]==2, 2] <- 1
+# M[M[, 2]>2, 2] <- 2
 
 S <- apply(M, 2, max)
 
@@ -29,7 +29,7 @@ ex_fit <- stan(file = "R/grsm_latent_reg.stan",
                data = ex_list, 
                chains = 4, 
                cores = 4,
-               iter = 500,
+               iter = 200,
                seed = 324)
 
 # Plot of convergence statistics

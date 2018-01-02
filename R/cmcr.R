@@ -26,7 +26,7 @@ ls <- dat %>%
     
 ### Delete these when turning into a function
 seed <- 324
-iter <- 40
+iter <- 500
 chains <- 4
 cores <- chains
 x <- ls
@@ -61,7 +61,7 @@ out1 <- stan(file = "R/cmcr.stan",
              control = list(max_treedepth = 20,
                             adapt_delta = .8))
 runtime <- proc.time() - start
-runtime
+runtime/60
 
 lapply(get_sampler_params(out1, inc_warmup = FALSE),
        summary, digits = 2)
