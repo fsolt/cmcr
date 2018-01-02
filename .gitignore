@@ -2,4 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+*.aux
+*.log
+*.out
+*.tex
 dev/*
